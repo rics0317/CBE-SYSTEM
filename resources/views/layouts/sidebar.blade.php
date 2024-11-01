@@ -1,18 +1,20 @@
 <!-- Sidebar -->
 <aside class="main-sidebar" id="sidebar">
     <div class="sidebar-header">
-        <h3>AdminLTE</h3>
+        <img src="{{ asset('images/dep.png') }}" alt="Company Logo" class="sidebar-logo, img-fluid" style="max-height: 125px;">
     </div>
     <nav class="sidebar-nav">
         <ul>
             <li class="active"><a href="#"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class='bx bx-layer'></i> <span>Widgets</span></a></li>
-            <li><a href="#"><i class='bx bx-chart'></i> <span>Charts</span></a></li>
-            <li><a href="#"><i class='bx bx-table'></i> <span>Tables</span></a></li>
-            <li><a href="#"><i class='bx bx-envelope'></i> <span>Mailbox</span></a></li>
+            <li><a href="#"><i class='bx bx-bell'></i> <span>Notification</span></a></li>
+            <li><a href="#"><i class='bx bx-chat'></i> <span>Inbox</span></a></li>
+            <li><a href="#"><i class='bx bx-calendar'></i> <span>Appointment</span></a></li>
+            <li><a href="#"><i class='bx bx-file'></i> <span>Documentation</span></a></li>
+            <li><a href="#"><i class='bx bx-circle'></i> <span>Reports</span></a></li>
+            <li><a href="#"><i class='bx bx-cog'></i> <span>Settings</span></a></li>
         </ul>
     </nav>
     <div class="sidebar-footer">
-        <img src="{{ asset('images/dep.png') }}" alt="Company Logo" class="footer-logo">
+        
     </div>
 </aside>
