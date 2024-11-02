@@ -5,7 +5,7 @@
     </div>
     <nav class="sidebar-nav">
         <ul>
-            <li class="active"><a href="#"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="{{ route('dashboard') }}"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a></li>
             <li><a href="#"><i class='bx bx-bell'></i> <span>Notification</span></a></li>
             <li><a href="#"><i class='bx bx-chat'></i> <span>Inbox</span></a></li>
             <li><a href="#"><i class='bx bx-calendar'></i> <span>Appointment</span></a></li>
