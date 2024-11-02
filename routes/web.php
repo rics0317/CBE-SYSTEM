@@ -4,10 +4,11 @@
 use App\Http\Middleware\EnsureStudent; 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -26,4 +27,5 @@ Route::get('/student/appointments/calendar', [AppointmentController::class, 'cal
 Route::post('/student/appointments/book', [AppointmentController::class, 'book'])->name('appointments.book');
 Route::get('/appointments/{teacherId}', [AppointmentController::class, 'getAppointmentsByTeacher'])->name('appointments.byTeacher');
 });
+
 require __DIR__.'/auth.php';
