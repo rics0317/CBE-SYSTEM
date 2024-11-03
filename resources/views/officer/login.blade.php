@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login - College of Business Education</title>
+    <title>Officer Login - College of Business Education</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
@@ -186,7 +186,7 @@
         <div class="navbar-container">
             <a href="/" class="nav-brand">College of Business Education</a>
             <div class="nav-links">
-                <a href="{{ route('officer.login') }}">Officer Login</a>
+                <a href="{{ route('login') }}">Student Login</a>
                 <a href="{{ route('enrollment.index') }}">Enrollment</a>
             </div>
         </div>
@@ -195,12 +195,12 @@
     <div class="main-container">
         <div class="login-container">
             <div class="login-header">
-                <h1>Student Login</h1>
+                <h1>Officer Login</h1>
                 <p>Please enter your credentials to continue</p>
             </div>
 
             <div class="login-form">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('officer.authenticate') }}">
                     @csrf
 
                     <div class="form-group">
@@ -234,15 +234,6 @@
                         <span>Login</span>
                         <i class='bx bx-right-arrow-alt'></i>
                     </button>
-
-                    @if (Route::has('password.request'))
-                        <div class="back-to-home">
-                            <a href="{{ route('password.request') }}">
-                                <i class='bx bx-help-circle'></i>
-                                <span>Forgot Your Password?</span>
-                            </a>
-                        </div>
-                    @endif
 
                     <div class="back-to-home">
                         <a href="/">

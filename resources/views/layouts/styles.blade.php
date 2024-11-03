@@ -282,4 +282,104 @@
             width: 40px;
         }
     }
+
+    /* Add these new styles for the dropdown */
+    .sidebar-dropdown > a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dropdown-icon {
+        transition: transform 0.3s ease;
+        font-size: 1.2em;
+    }
+
+    .sidebar-dropdown.active > a .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .sidebar-submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #f8f9fa;
+    }
+
+    .sidebar-submenu li {
+        padding: 8px 10px 8px 45px !important;
+    }
+
+    .sidebar-submenu li a {
+        font-size: 0.9em;
+        color: #555;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-submenu li a:hover {
+        opacity: 1;
+        color: #333;
+        background-color: transparent;
+    }
+
+    /* Handling collapsed state */
+    .main-sidebar.collapsed .sidebar-submenu {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        width: 200px;
+        margin-top: 0;
+        padding: 10px 0;
+        border-radius: 0 4px 4px 0;
+        background: white;
+        box-shadow: 4px 0 5px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .main-sidebar.collapsed .sidebar-dropdown:hover .sidebar-submenu {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .main-sidebar.collapsed .sidebar-submenu li {
+        padding: 8px 20px !important;
+    }
+
+    /* Active state styling */
+    .sidebar-nav ul li.sidebar-dropdown.active {
+        background-color: #f0f0f0;
+    }
+
+    .sidebar-nav ul li.sidebar-dropdown.active > a {
+        color: #000;
+        font-weight: 500;
+    }
+
+    .sidebar-submenu li.active a {
+        color: #000;
+        font-weight: 500;
+    }
+
+    /* Hover effects */
+    .sidebar-nav ul li.sidebar-dropdown:hover {
+        background-color: #f4f4f4;
+    }
+
+    .sidebar-submenu li:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .main-sidebar.collapsed .sidebar-submenu {
+            position: fixed;
+            left: 60px;
+            top: auto;
+            z-index: 1000;
+        }
+    }
 </style>

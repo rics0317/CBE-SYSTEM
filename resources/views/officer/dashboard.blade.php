@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Officer Dashboard')
 
 @section('content')
     <!-- Add Bootstrap CSS -->
@@ -12,7 +12,7 @@
             padding: 20px;
             border-radius: 10px;
             background-color: #f8f9fa;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .rectangle {
@@ -36,7 +36,7 @@
             padding: 10px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 80%;
             margin: auto;
         }
@@ -50,69 +50,77 @@
 
     <div class="rectangle" style="display: flex; justify-content: space-between;">
         <h6 style="margin-left: 0; margin-bottom: 10px; margin-right: 399px;">WELCOME TO</h6>
-        <h1 style="margin-left: -1000px; margin-bottom: -80px;">STUDENT DASHBOARD</h1>
+        <h1 style="margin-left: -1000px; margin-bottom: -80px;">OFFICER DASHBOARD</h1>
         <img src="{{ asset('images/dep1.png') }}" alt="Description of image" class="img-fluid" style="max-height: 200px; margin-right: 400px;">
     </div>
 
     <div class="info-boxes d-flex flex-wrap justify-content-between">
         <div class="info-box">
-            <h5>Approved</h5>
+            <h5>Total Students</h5>
             <div class="progress">
-                <div class="progress-bar bg-success" style="width: {{ ($approved / max($all, 1)) * 100 }}%"></div>
+                <div class="progress-bar bg-success" style="width: 75%"></div>
             </div>
-            <p class="mt-2">{{ $approved }} Applications</p>
+            <p class="mt-2">{{ $totalStudents ?? 0 }} Students</p>
         </div>
         <div class="info-box">
-            <h5>Pending</h5>
+            <h5>Pending Applications</h5>
             <div class="progress">
-                <div class="progress-bar bg-warning" style="width: {{ ($pending / max($all, 1)) * 100 }}%"></div>
+                <div class="progress-bar bg-warning" style="width: 45%"></div>
             </div>
-            <p class="mt-2">{{ $pending }} Applications</p>
+            <p class="mt-2">{{ $pendingApplications ?? 0 }} Applications</p>
         </div>
         <div class="info-box">
-            <h5>Draft</h5>
+            <h5>Approved Applications</h5>
             <div class="progress">
-                <div class="progress-bar bg-secondary" style="width: {{ ($draft / max($all, 1)) * 100 }}%"></div>
+                <div class="progress-bar bg-info" style="width: 60%"></div>
             </div>
-            <p class="mt-2">{{ $draft }} Applications</p>
+            <p class="mt-2">{{ $approvedApplications ?? 0 }} Applications</p>
         </div>
         <div class="info-box">
-            <h5>All</h5>
+            <h5>Rejected Applications</h5>
             <div class="progress">
-                <div class="progress-bar bg-info" style="width: 100%"></div>
+                <div class="progress-bar bg-danger" style="width: 25%"></div>
             </div>
-            <p class="mt-2">{{ $all }} Applications</p>
+            <p class="mt-2">{{ $rejectedApplications ?? 0 }} Applications</p>
         </div>
         <div class="info-box">
-            <h5>Rejected</h5>
+            <h5>Today's Appointments</h5>
             <div class="progress">
-                <div class="progress-bar bg-danger" style="width: {{ ($rejected / max($all, 1)) * 100 }}%"></div>
+                <div class="progress-bar bg-primary" style="width: 40%"></div>
             </div>
-            <p class="mt-2">{{ $rejected }} Applications</p>
-        </div>
-        <div class="info-box">
-            <h5>Archive</h5>
-            <div class="progress">
-                <div class="progress-bar bg-light" style="width: {{ ($archive / max($all, 1)) * 100 }}%"></div>
-            </div>
-            <p class="mt-2">{{ $archive }} Applications</p>
+            <p class="mt-2">{{ $todayAppointments ?? 0 }} Appointments</p>
         </div>
     </div>
 
     <div class="d-flex justify-content-between">
         <div class="chart-container" style="flex: 1;">
-            <h2>Upcoming Appointments</h2>
-            @if(count($appointments) > 0)
-                <ul class="list-group">
-                    @foreach($appointments as $appointment)
-                        <li class="list-group-item">
-                            {{ $appointment->title }} - {{ $appointment->date }}
-                        </li>
-                    @endforeach
-                </ul>
-            @else
-                <p>No upcoming appointments</p>
-            @endif
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Recent Applications</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Application Type</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Add your table rows here -->
+                            <tr>
+                                <td>John Doe</td>
+                                <td>Enrollment</td>
+                                <td>2024-03-15</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div class="calendar" style="background-color: #ffc107; padding: 10px; border-radius: 10px; width: 30%; margin-left: 20px;">
