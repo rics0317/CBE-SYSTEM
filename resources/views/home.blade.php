@@ -12,16 +12,16 @@
             padding: 0;
             margin: 0;
             border: -10;
-            overflow-y: auto;
+            overflow-y: hidden;
             overflow-x: hidden;
-            height: 100vh;
+            height: auto;
         }
         .navbar {
             background-color: #FFC107;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 0;
+            padding: -25px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .navbar a {
@@ -42,12 +42,12 @@
             transform: translateY(-2px);
         }
         .navbar i {
-            font-size: 24px;
+            font-size: 18px;
             margin-bottom: 5px;
         }
         .logo {
-            margin-top: -200px;
-            margin-left: 471px;
+            margin-top: -233px;
+            margin-left: 730px;
            
         }
         .container {
@@ -90,7 +90,7 @@
     <div class="container">
         <img src="{{ asset('images/cbe1.jpg') }}" alt="Department Logo" class="img-fluid my-4" style="max-width: 99%; height: auto; border-radius: 25px;">
         <div class="logo">
-            <img src="{{ asset('images/dep.png') }}" alt="College Logo" class="img-fluid my-4" style="max-width: 99%; height: 400px;">
+            <img src="{{ asset('images/dep.png') }}" alt="College Logo" class="img-fluid my-4" style="max-width: 99%; height: 440px;">
         </div>
     </div>
 </body>
