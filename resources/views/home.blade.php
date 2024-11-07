@@ -11,17 +11,17 @@
             background-color: #f0f0f0;
             padding: 0;
             margin: 0;
-            border: -10;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             height: 100vh;
+
         }
         .navbar {
+            
             background-color: #FFC107;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 0;
+            padding: -5px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .navbar a {
@@ -47,15 +47,16 @@
         }
         .logo {
             margin-top: -200px;
-            margin-left: 471px;
+            margin-left: 750px;
            
         }
         .container {
-            margin-top: 30px;
-            margin-left: 10px;
+            margin-top: 25px;
+            margin-left: 8px;
             width: 100%;
+            height: 100%;
             justify-content: center;
-            padding-bottom: 30px;
+            padding-bottom: 2;
         }
         ::-webkit-scrollbar {
             width: 10px;
