@@ -15,12 +15,13 @@ class CheckOfficerRole
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->role !== 'officer') {
+        if (!Auth::check() || !in_array(Auth::user()->role, ['officer', 'teacher'])) {
             Auth::logout();
             return redirect()->route('officer.login')->withErrors([
                 'email' => 'You do not have permission to access this area.',
             ]);
         }
+        
 
         return $next($request);
     }

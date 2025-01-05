@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function appointments()
+    {
+        return $this->belongsToMany(Appointment::class, 'appointment_student')
+                    ->withTimestamps();
+    }
+    public function available_dates()
+    {
+        return $this->hasMany(AvailableDate::class);
+    }
 }

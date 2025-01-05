@@ -12,18 +12,19 @@ class Appointment extends Model
     protected $fillable = [
         'student_id',
         'teacher_id',
-        'date',
-        'time',
+        'preferred_date_time',
+        'scheduled_date_time',
+        'flexible_availability',
+        'comments',
+        'feedback',
         'status',
     ];
 
-    // Define relationship to the User model for students
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');
     }
 
-    // Define relationship to the User model for teachers
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
 class EnrollmentController extends Controller
@@ -28,7 +27,17 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-        // Add validation and store logic
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|string|max:20',
+            'course' => 'required|string|in:bsba,bsoa',
+        ]);
+
+        // Add your enrollment logic here
+        
+        return redirect()->route('enrollment')
+            ->with('success', 'Enrollment submitted successfully!');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -36,6 +37,13 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        // Create a notification for the user
+        Notification::create([
+            'user_id' => Auth::id(),
+            'type' => 'profile_update',
+            'message' => 'Your profile information has been updated.',
+        ]);
+
         return Redirect::route('profile.edit')->with('status', 'Profile updated successfully!');
     }
 
@@ -58,6 +66,13 @@ class ProfileController extends Controller
         $user->profile_image = $path;
         $user->save();
 
+        // Create a notification for the user
+        Notification::create([
+            'user_id' => Auth::id(),
+            'type' => 'profile_image_update',
+            'message' => 'Your profile image has been updated.',
+        ]);
+
         return Redirect::route('profile.edit')->with('status', 'Profile image updated successfully!');
     }
 
@@ -73,6 +88,13 @@ class ProfileController extends Controller
 
         $request->user()->update([
             'password' => Hash::make($validated['password']),
+        ]);
+
+        // Create a notification for the user
+        Notification::create([
+            'user_id' => Auth::id(),
+            'type' => 'password_update',
+            'message' => 'Your password has been updated.',
         ]);
 
         return Redirect::route('profile.edit')->with('status', 'Password updated successfully!');
